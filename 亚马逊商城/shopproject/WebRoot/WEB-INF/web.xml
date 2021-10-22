@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+
+	<!-- 首页 -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+
+	<!-- 用于登录验证的过滤器 -->
+	<filter>
+		<filter-name>LoginValidationFilter</filter-name>
+		<filter-class>com.oracleoaec.filter.LoginValidationFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginValidationFilter</filter-name>
+		<url-pattern>/news_view.jsp</url-pattern>
+		<url-pattern>/shoping.jsp</url-pattern>
+		<url-pattern>/shoping_result.jsp</url-pattern>
+		<url-pattern>/back.jsp</url-pattern>
+		<url-pattern>/goingToBuy</url-pattern>
+	</filter-mapping>
+	
+	<!-- 处理直接查看评论的页面的拦截器 -->
+	<filter>
+		<filter-name>CommentFilter</filter-name>
+		<filter-class>com.oracleoaec.filter.CommentFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CommentFilter</filter-name>
+		<url-pattern>/guestbook.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 对操作产品的相关处理的拦截器 -->
+	<filter>
+		<filter-name>product</filter-name>
+		<filter-class>com.oracleoaec.filter.ProductFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>product</filter-name>
+		<url-pattern>/index.jsp</url-pattern>
+		<url-pattern>/index_product_sort.jsp</url-pattern>
+		<url-pattern>/product_view.jsp</url-pattern>
+		<url-pattern>/guestbook.jsp</url-pattern>
+		<url-pattern>/category</url-pattern>
+		<url-pattern>/ref</url-pattern>
+		<url-pattern>/query</url-pattern>	
+	</filter-mapping>
+	
+	<!-- 修改字符集，解决中文乱码问题 -->
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.oracleoaec.filter.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 用户登录，注册，退出等相关的操作 -->
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.oracleoaec.servlet.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<!-- 登录验证 -->
+		<url-pattern>/login</url-pattern>
+		<!-- 用户退出 -->
+		<url-pattern>/quit</url-pattern>
+		<!-- 用户注册 -->
+		<url-pattern>/register</url-pattern>
+		<!-- 用户登录时，忘记密码，这里时找回密码的处理 -->
+		<url-pattern>/retrieve_password</url-pattern>
+		<!-- 注册时，对邮箱进行ajax验证 -->
+		<url-pattern>/checkEmail</url-pattern>
+		<!-- 注册时，对用户名进行ajax验证 -->
+		<url-pattern>/checkUserName</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 关于商品的操作 -->
+	<servlet>
+		<servlet-name>ProductServlet</servlet-name>
+		<servlet-class>com.oracleoaec.servlet.ProductServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProductServlet</servlet-name>
+		<!-- 按照商品id查新指定的商品 -->
+		<url-pattern>/pview</url-pattern>
+		<!-- 根据输入的商品名称进行模糊查询以及分页的实现，包括按照父类，子类，模糊，查询全部等分页 -->
+		<url-pattern>/ref</url-pattern>		 
+		<!-- 根据类别查询商品 -->
+		<url-pattern>/category</url-pattern>
+	</servlet-mapping>
+
+	<!-- 对新闻信息的操作 -->
+	<servlet>
+		<servlet-name>NewsServlet</servlet-name>
+		<servlet-class>com.oracleoaec.servlet.NewsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewsServlet</servlet-name>
+		<url-pattern>/readNews</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 购买商品的操作 -->
+	<servlet>
+		<servlet-name>ShoppingServlet</servlet-name>
+		<servlet-class>com.oracleoaec.servlet.ShoppingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShoppingServlet</servlet-name>
+		<!-- 点击购物车，查看购物车中所有的商品信息 -->
+		<url-pattern>/shopping</url-pattern>
+		<!-- 点击支付，执行购买操作 -->
+		<url-pattern>/doBuy</url-pattern>
+		<!-- 点击立即购买时，执行的操作 -->
+		<url-pattern>/goingToBuy</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- 购物车操作 -->
+	<servlet>
+		<servlet-name>CartServlet</servlet-name>
+		<servlet-class>com.oracleoaec.servlet.CartServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CartServlet</servlet-name>
+		<!-- 修改购物车产品数量 -->
+		<url-pattern>/alterQuantity</url-pattern>
+		<!-- 添加购物车 -->
+		<url-pattern>/addToCart</url-pattern>
+		<!-- 删除购物车 -->
+		<url-pattern>/deleteCart</url-pattern>
+	</servlet-mapping>
+
+	
+	<!-- 对评论的操作 -->
+	<servlet>
+		<servlet-name>CommentServlet</servlet-name>
+		<servlet-class>com.oracleoaec.servlet.CommentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CommentServlet</servlet-name>
+		<url-pattern>/addComment</url-pattern>
+	</servlet-mapping>
+</web-app>
