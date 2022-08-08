@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+</head>
+<body>
+
+<div class="sidebar-wrap">
+    <div class="sidebar-title">
+        <h1>菜单</h1>
+    </div>
+    <div class="sidebar-content">
+        <ul class="sidebar-list">
+            <li>
+                <a href="#"><i class="icon-font"></i>常用操作</a>
+                <ul class="sub-menu">
+                    <li><a href="admin_user.html"><i class="icon-font">&#xe008;</i>用户管理</a></li>
+                    <li><a href="admin_cate.html"><i class="icon-font">&#xe005;</i>分类管理</a></li>
+                    <li><a href="admin_product.html"><i class="icon-font">&#xe006;</i>商品管理</a></li>
+                    <li><a href="admin_orders.html"><i class="icon-font">&#xe004;</i>订单管理</a></li>
+                    <li><a href="admin_news.html"><i class="icon-font">&#xe012;</i>新闻管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="icon-font"></i>系统管理</a>
+                <ul class="sub-menu">
+                    <li><a href="system.html"><i class="icon-font"></i>修改密码</a></li>
+                    <!--            <li><a href="system.html"><i class="icon-font"></i>系统设置</a></li>-->
+                    <!--            <li><a href="system.html"><i class="icon-font"></i>清理缓存</a></li>-->
+                    <!--            <li><a href="system.html"><i class="icon-font"></i>数据备份</a></li>-->
+                    <!--            <li><a href="system.html"><i class="icon-font"></i>数据还原</a></li>-->
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--/sidebar-->
+
+<div class="main-wrap">
+
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="admin_index.html">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="admin_user.html">服装管理</a><span class="crumb-step">&gt;</span><span>新增商品</span></div>
+    </div>
+    <div class="result-wrap">
+        <div class="result-content">
+            <!--      <form action="/MonkeyShop/manage/admin_doproductadd" method="post" enctype="multipart/form-data" id="myform" name="myform" >-->
+            <table class="insert-tab" width="100%">
+                <input id="id" type="hidden">
+                <tbody>
+                <tr>
+                    <th><i class="require-red">*</i>商品名称：</th>
+                    <td>
+                        <input class="common-text required" id="name" name="productName" size="50" value="" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="require-red">*</i>商品分类：</th>
+                    <td><select class="common-text required" name="parentId" id="search-sort">
+
+                        <!--              <%&#45;&#45; <c:forEach var="cate" items="${catelist }">-->
+                        <!--              <c:if test="${cate.CATE_PARENT_ID ==0 }">-->
+                        <!--                <option value="${cate.CATE_ID }">${cate.CATE_NAME }</option>-->
+                        <!--              </c:if>-->
+                        <!--            </c:forEach> &#45;&#45;%>-->
+                        <!--              <c:forEach var="f" items="${flist }">-->
+                        <!--                <option value="${f.CATE_ID }" disabled="disabled">|-${f.CATE_NAME }</option>-->
+                        <!--                <c:forEach var="c" items="${clist }">-->
+                        <!--                  <c:if test="${c.CATE_PARENT_ID == f.CATE_ID }">-->
+                        <!--                    <option value="${f.CATE_ID}-${c.CATE_ID }">&nbsp&nbsp&nbsp&nbsp&nbsp|-${c.CATE_NAME }-</option>-->
+                        <!--                  </c:if>-->
+                        <!--                </c:forEach>-->
+                        <!--              </c:forEach>-->
+
+
+                    </select></td>
+                </tr>
+
+                <tr>
+                    <th><i class="require-red">*</i>商品图片：</th>
+                    <td>
+                        <img src="" id="pic" style="height: 100px;width: 100px"><br>
+                        <input class="common-text required" id="filename" name="className" size="50" value="" type="file">
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="require-red">*</i>商品价格：</th>
+                    <td>
+                        <input class="common-text required" id="price" name="productPrice" size="50" value="" type="text">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th><i class="require-red">*</i>商品介绍：</th>
+                    <td>
+                        <input class="common-text required" id="description" name="productDesc" size="50" value="" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th><i class="require-red">*</i>商品库存：</th>
+                    <td>
+                        <input class="common-text required" id="stock" name="productStock" size="50" value="" type="text">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th></th>
+                    <td>
+                        <input class="btn btn-primary btn6 mr10" value="提交" onclick="ProductUpdate()" type="submit">
+                        <input class="btn btn6" onClick="history.go(-1)" value="返回" type="button">
+                    </td>
+                </tr>
+                </tbody></table>
+            <!--      </form>-->
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function (){
+        findAllCategory();
+        findById();
+    });
+
+    //修改商品列表信息
+    function ProductUpdate(){
+        let id = $("#id").val();
+        var formData = new FormData();
+        var cateId = $("#search-sort option:selected").val();
+        formData.append("id",id);
+        formData.append("file",$("#filename").get(0).files[0])
+        formData.append("cateId",cateId);
+        formData.append("name",$("#name").val());
+        formData.append("price",$("#price").val());
+        formData.append("description",$("#description").val());
+        formData.append("stock",$("#stock").val());
+        $.ajax({
+            async:false,
+            url:"/product/update",
+            type:"POST",
+            dataType:"json",
+            data:formData,
+            contentType:false,
+            processData:false,
+            success:function (json){
+                if (json.state == 200){
+                    alert("修改成功");
+                    location.href = "admin_product.html";
+                }else {
+                    alert("修改不成功，请重新加载页面");
+                    // location.href = "../login.html";
+                }
+            },
+            error:function (xhr){
+                alert("修改时产生未知的错误："+xhr.status);
+            }
+        });
+    }
+    //根据id查询所有的商品信息
+    function findById(){
+        var str = location.href;
+        var num = str.indexOf("?");
+        str = str.substr(num+1);
+        let parmt = "?"+str
+        // alert(parmt);
+        $.ajax({
+            url:"/product/findById"+parmt,
+            type:"GET",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200){
+                    $("#id").val(json.data.id);
+                    $("#name").val(json.data.name);
+                    $("#price").val(json.data.price);
+                    $("#description").val(json.data.description);
+                    $("#stock").val(json.data.stock);
+                    $("#pic").attr("src",json.data.filename)
+
+
+                }else {
+                    alert("商品查询失败!");
+                }
+            },
+            error:function (xhr){
+                alert("商品查询时产生未知的错误："+xhr.status);
+            }
+        });
+    }
+
+    //查询所有分类
+    function findAllCategory(){
+        $.ajax({
+            url:"/category/findAll",
+            type:"GET",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200){
+                    let parent = json.data.parent;
+                    let children = json.data.children;
+                    // console.log(parent);
+                    // console.log(children);
+                    for (let i=0;i<parent.length;i++){
+
+                        let html ='<option value="#{cateId}">|-#{cateName}</option>';
+                        //href="/user/del?id=#{id}"
+                        html = html.replace(/#{cateId}/g,parent[i].cateId);
+                        html = html.replace(/#{cateName}/g,parent[i].cateName);
+                        $("#search-sort").append(html);
+                        for (let j = 0;j<children.length;j++){
+                            if (parent[i].cateId==children[j].catePatentId &&children[j].catePatentId !=0 ){
+                                // console.log(children[j].cateId);
+                                // console.log(children[j].cateName);
+                                let html2 = '<option value="#{cateId}">&nbsp&nbsp&nbsp&nbsp&nbsp|-#{cateName}</option>';
+                                html2 = html2.replace(/#{cateId}/g,children[j].cateId);
+                                html2 = html2.replace(/#{cateName}/g,children[j].cateName);
+                                // html2 = html2.replace(/#{catePatentId}/g,children[j].catePatentId);
+                                $("#search-sort").append(html2);
+                            }
+                        }
+                        // $("#cate-list").append(html);
+                    }
+
+
+                }else {
+                    alert("用户加载不成功，请重新加载页面");
+                    location.href="index.html";
+                }
+            },
+            error:function (xhr){
+                alert("加载时产生未知的错误："+xhr.status);
+            }
+        });
+
+    }
+</script>
+</body>
+</html>

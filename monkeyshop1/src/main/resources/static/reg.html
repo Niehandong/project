@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script  src="js/function.js"></script>
+    <script src="js/jquery-1.12.4.min.js"></script>
+</head>
+<body><!-------------------reg-------------------------->
+<div class="reg">
+    <form id="form-reg" role="form">
+<!--        <p th:text="${msg}"></p>-->
+        <p><h1><a href="index.html">用户注册</a></h1></p>
+        <p><input id="userId" type="text" name="USER_ID" value="" placeholder="请输入账号"></p>
+        <p><input id="userPassword" type="text" name="" value="" placeholder="请确认密码"></p>
+        <p>
+            <input id="man" style="width: 20px;height: 15px" type="radio" name="sex" value="男" checked="checked">男
+            <input id="woman" style="width: 20px;height: 15px" type="radio" name="sex" value="女" >女
+        </p>
+        <p><input id="userBirthday" type="text" name="birthday" value=""  placeholder="请输入出生日期"><span></span></p>
+        <p><input id="userEmail" type="text" name="email" value="" placeholder="请输入邮箱"><span></span></p>
+        <p><input id="userMobile" type="text" name="mobile" value="" placeholder="请输入手机号码"><span></span></p>
+        <p><input id="userAddress" type="text" name="address" value="" placeholder="请输入家庭住址"><span></span></p>
+
+        <!--        <p class="txtL txt"><input class="code" type="text" name="" value="" placeholder="验证码"><img-->
+<!--                src="img/temp/code.jpg"></p>-->
+        <p><input id="bth-reg" type="submit" name="" value="注册"></p>
+        <p class="txtL txt">完成此注册，即表明您同意了我们的
+            <a href="#"> <使用条款和隐私策略></使用条款和隐私策略>
+        </a></p>
+        <p class="txt"><a href="login.html"><span></span>已有账号登录</a></p>
+        </form>
+</div>
+
+<script type="text/javascript">
+
+    $("#bth-reg").click(function (){
+
+        let userId= $('#userId').val();
+        let userPassword = $('#userPassword').val();
+        let userSex = $('input[name="sex"]:checked').val();
+        let userBirthday = $('#userBirthday').val();
+        let userEmail = $('#userEmail').val();
+        let userMobile = $('#userMobile').val();
+        let userAddress = $('#userAddress').val();
+
+        let parmt = "?userId="+userId+"&userPassword="+userPassword+"&userSex="+userSex+"&userBirthday="+userBirthday+"&userEmail="+userEmail+"&userMobile="+userMobile+"&userAddress="+userAddress;
+
+        $.ajax({
+            url:"/user/reg"+parmt,
+            type:"POST",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200){
+                    alert("用户注册成功!");
+                    location.href = "login.html";
+                }else {
+                    alert("用户注册失败!");
+                    location.href="reg.html";
+                }
+            },
+            error:function (xhr){
+                alert("注册时产生未知的错误："+xhr.status);
+            }
+        });
+     });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/jquery.cookie.js"></script>
+</head>
+<body>
+
+<div class="sidebar-wrap">
+  <div class="sidebar-title">
+    <h1>菜单</h1>
+  </div>
+  <div class="sidebar-content">
+    <ul class="sidebar-list">
+      <li>
+        <a href="#"><i class="icon-font"></i>常用操作</a>
+        <ul class="sub-menu">
+          <li><a href="admin_user.html"><i class="icon-font">&#xe008;</i>用户管理</a></li>
+          <li><a href="admin_cate.html"><i class="icon-font">&#xe005;</i>分类管理</a></li>
+          <li><a href="design.html"><i class="icon-font">&#xe006;</i>商品管理</a></li>
+          <li><a href="design.html"><i class="icon-font">&#xe004;</i>订单管理</a></li>
+          <li><a href="design.html"><i class="icon-font">&#xe012;</i>新闻管理</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><i class="icon-font"></i>系统管理</a>
+        <ul class="sub-menu">
+          <li><a href="system.html"><i class="icon-font"></i>修改密码</a></li>
+          <!--            <li><a href="system.html"><i class="icon-font"></i>系统设置</a></li>-->
+          <!--            <li><a href="system.html"><i class="icon-font"></i>清理缓存</a></li>-->
+          <!--            <li><a href="system.html"><i class="icon-font"></i>数据备份</a></li>-->
+          <!--            <li><a href="system.html"><i class="icon-font"></i>数据还原</a></li>-->
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+  <div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="admin_user.jsp">用户管理</a><span class="crumb-step">&gt;</span><span>新增用户</span></div>
+  </div>
+  <div class="result-wrap">
+    <div class="result-content">
+
+        <table class="insert-tab" width="100%">
+          <tbody>
+<!--          <tr>-->
+<!--            <th width="120"><i class="require-red">*</i>分类：</th>-->
+<!--            <td>-->
+<!--              <select name="colId" id="catid" class="required">-->
+<!--                <option value="">请选择</option>-->
+<!--                <option value="19">精品界面</option><option value="20">推荐界面</option>-->
+<!--              </select>-->
+<!--            </td>-->
+<!--          </tr>-->
+          <tr>
+            <th><i class="require-red">*</i>用户名：</th>
+            <td>
+              <input class="common-text required" id="userId" name="userName" size="50" value="" type="text">
+            </td>
+          </tr>
+
+          <tr>
+            <th><i class="require-red">*</i>用户姓名：</th>
+            <td>
+              <input class="common-text required" id="userName" name="name" size="50" value="" type="text">
+            </td>
+          </tr>
+          <tr>
+            <th><i class="require-red">*</i>登录密码：</th>
+            <td>
+              <input class="common-text required" id="title" name="passWord" size="50" value="" type="text">
+            </td>
+          </tr>
+
+          <tr>
+            <th><i class="require-red">*</i>确认密码：</th>
+            <td>
+              <input class="common-text required" id="userPassword" name="rePassWord" size="50" value="" type="text">
+            </td>
+          </tr>
+
+          <tr>
+            <th>性别：</th>
+            <td>
+              <input type="radio" name="sex" value="男" checked="checked">男
+              <input type="radio" name="sex" value="女" >女
+            </td>
+          </tr>
+          <tr>
+            <th>出生日期：</th>
+            <td><input id="userBirthday" class="common-text" name="birthday" size="50" value="" type="text"></td>
+          </tr>
+
+          <tr>
+            <th><i class="require-red">*</i>电子邮箱：</th>
+            <td>
+              <input class="common-text required" id="userEmail" name="email" size="50" value="" type="text">
+            </td>
+          </tr>
+
+          <tr>
+            <th><i class="require-red">*</i>手机号码：</th>
+            <td>
+              <input class="common-text required" id="userMobile" name="mobile" size="50" value="" type="text">
+            </td>
+          </tr>
+          <tr>
+            <th><i class="require-red">*</i>送货地址：</th>
+            <td>
+              <input class="common-text required" id="userAddress" name="address" size="50" value="" type="text">
+            </td>
+          </tr>
+
+
+          <th></th>
+          <td>
+            <input class="btn btn-primary btn6 mr10" value="提交" onclick="javascript:userAdd();" type="submit">
+            <input class="btn btn6" onClick="history.go(-1)" value="返回" type="button">
+          </td>
+          </tr>
+          </tbody></table>
+
+    </div>
+  </div>
+
+</div>
+<script type="text/javascript">
+      function userAdd(){
+        let userId = $("#userId").val();
+        let userName = $("#userName").val();
+        let userPassword = $("#userPassword").val();
+        let userSex = $('input[name="sex"]:checked').val();
+        let userBirthday = $("#userBirthday").val();
+        let userEmail = $("#userEmail").val();
+        let userMobile = $("#userMobile").val();
+        let userAddress = $("#userAddress").val();
+
+          let parmt = "?userId="+userId+"&userPassword="+userPassword+"&userSex="+userSex+"&userBirthday="+userBirthday+"&userEmail="+userEmail+"&userMobile="+userMobile+"&userAddress="+userAddress+"&userName="+userName;
+
+          $.ajax({
+              url:"/user/reg"+parmt,
+              type:"POST",
+              dataType:"json",
+              success:function (json){
+                  if (json.state == 200){
+                      alert("用户添加成功!");
+                      location.href = "admin_user.html";
+                  }else {
+                      alert("用户添加失败!");
+                      // location.href="reg.html";
+                  }
+              },
+              error:function (xhr){
+                  alert("注册时产生未知的错误："+xhr.status);
+              }
+          });
+      }
+</script>
+</body>
+</html>

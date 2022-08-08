@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="css/common.css"/>
+  <link rel="stylesheet" type="text/css" href="css/main.css"/>
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/jquery.cookie.js"></script>
+</head>
+<body>
+
+<div class="sidebar-wrap">
+  <div class="sidebar-title">
+    <h1>菜单</h1>
+  </div>
+  <div class="sidebar-content">
+    <ul class="sidebar-list">
+      <li>
+        <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
+        <ul class="sub-menu">
+          <li><a href="admin_user.html"><i class="icon-font">&#xe008;</i>用户管理</a></li>
+          <li><a href="admin_cate.html"><i class="icon-font">&#xe005;</i>分类管理</a></li>
+          <li><a href="admin_product.html"><i class="icon-font">&#xe006;</i>商品管理</a></li>
+          <li><a href="admin_orders.html"><i class="icon-font">&#xe004;</i>订单管理</a></li>
+          <li><a href="admin_news.html"><i class="icon-font">&#xe012;</i>新闻管理</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
+        <ul class="sub-menu">
+          <li><a href="system.html"><i class="icon-font"></i>修改密码</a></li>
+          <!--            <li><a href="system.html"><i class="icon-font"></i>系统设置</a></li>-->
+          <!--            <li><a href="system.html"><i class="icon-font"></i>清理缓存</a></li>-->
+          <!--            <li><a href="system.html"><i class="icon-font"></i>数据备份</a></li>-->
+          <!--            <li><a href="system.html"><i class="icon-font"></i>数据还原</a></li>-->
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="main-wrap">
+
+  <div class="crumb-wrap">
+    <div class="crumb-list"><i class="icon-font"></i><a href="admin_index.jsp">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">分类管理</span></div>
+  </div>
+
+  <div class="result-wrap">
+<!--    <form action="/MonkeyShop/manage/admin_douserdel" id="myform" method="post">-->
+      <div class="result-title">
+        <div class="result-list">
+          <a href="admin_cateadd.html"><i class="icon-font"></i>新增分类</a>
+
+          <!-- <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a> -->
+        </div>
+      </div>
+      <div class="result-content">
+        <table id="cate-list" class="result-tab" width="40%">
+          <tr>
+
+            <th>ID</th>
+            <th>分类名称</th>
+            <th>操作</th>
+
+          </tr>
+<!--          <c:forEach var="cate" items="${catelist}">-->
+<!--            <c:if test="${cate.CATE_PARENT_ID == 0}">-->
+<!--              <tr>-->
+<!--                <td>${cate.CATE_ID }</td>-->
+<!--                <td>|-${cate.CATE_NAME }</td>-->
+<!--                <td><a href="admin_tocateupdate?id=${cate.CATE_ID }">修改</a> <a href="javascript:catedel(${cate.CATE_ID })">删除</a></td>-->
+<!--              </tr>-->
+<!--              <c:forEach var="zcate" items="${catelist}">-->
+<!--                <c:if test="${zcate.CATE_PARENT_ID == cate.CATE_ID}">-->
+<!--                  <tr>-->
+<!--                    <td>${zcate.CATE_ID }</td>-->
+<!--                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-${zcate.CATE_NAME }</td>-->
+<!--                    <td><a href="admin_tocateupdate?id=${zcate.CATE_ID }">修改</a> <a href="javascript:catedel(${zcate.CATE_ID })">删除</a></td>-->
+<!--                  </tr>-->
+<!--                </c:if>-->
+<!--              </c:forEach>-->
+<!--            </c:if>-->
+<!--          </c:forEach>-->
+
+          <script>
+
+            $(document).ready(function (){
+             findAll();
+            });
+
+            function findAll(){
+              $.ajax({
+                url:"/category/findAll",
+                type:"GET",
+                dataType:"json",
+                success:function (json){
+                  if (json.state == 200){
+                    let parent = json.data.parent;
+                    let children = json.data.children;
+                    // console.log(parent);
+                    // console.log(children);
+                    $("#list-cate").empty();
+                    for (let i=0;i<parent.length;i++){
+                      let html ='<tr id="list-cate">\n' +
+                              ' <td>#{cateId}</td>\n' +
+                              ' <td>|-#{cateName}</td>\n' +
+                              ' <td><a href="admin_catemodify.html?cateId=#{cateId}">修改</a> <a href="javascript:catedel(#{cateId})">删除</a></td>\n' +
+                              ' </tr>';
+                      //href="/user/del?id=#{id}"
+                      html = html.replace(/#{cateId}/g,parent[i].cateId);
+                      html = html.replace(/#{cateName}/g,parent[i].cateName);
+                      $("#cate-list").append(html);
+                      for (let j = 0;j<children.length;j++){
+                        if (parent[i].cateId==children[j].catePatentId &&children[j].catePatentId !=0 ){
+                          // console.log(children[j].cateId);
+                          // console.log(children[j].cateName);
+                          let html2 = '<tr>\n' +
+                                  '<td>#{cateId}</td>\n' +
+                                  '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-#{cateName}</td>\n' +
+                                  '<td><a href="admin_catemodify.html?cateId=#{cateId}">修改</a> <a href="javascript:catedel(#{cateId})">删除</a></td>\n' +
+                                  '</tr>';
+                          html2 = html2.replace(/#{cateId}/g,children[j].cateId);
+                          html2 = html2.replace(/#{cateName}/g,children[j].cateName);
+                          // html2 = html2.replace(/#{catePatentId}/g,children[j].catePatentId);
+                          $("#cate-list").append(html2);
+                        }
+                      }
+                      // $("#cate-list").append(html);
+                    }
+
+
+                  }else {
+                    alert("用户加载不成功，请重新加载页面");
+                    location.href="index.html";
+                  }
+                },
+                error:function (xhr){
+                  alert("加载时产生未知的错误："+xhr.status);
+                }
+              });
+
+            }
+            //根据id删除对应的分类
+            function catedel(id){
+              if(confirm("你确定要删除这个分类吗?")){
+                let parmt = "?cateId="+id;
+                $.ajax({
+                  url:"/category/del"+parmt,
+                  type:"GET",
+                  dataType:"json",
+                  success:function (json){
+                    if (json.state == 200){
+                      location.href = "admin_cate.html";
+                    }else {
+                      alert("用户加载不成功，请重新加载页面");
+                      location.href = "admin_index.html";
+                    }
+                  },
+                  error:function (xhr){
+                    alert("加载时产生未知的错误："+xhr.status);
+                  }
+                });
+
+                // location.href="admin_docatedel?id="+id;
+              }
+            }
+
+          </script>
+
+
+        </table>
+
+      </div>
+<!--    </form>-->
+  </div>
+</div>
+
+</body>
+</html>

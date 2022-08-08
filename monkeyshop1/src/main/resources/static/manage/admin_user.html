@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/jquery.cookie.js"></script>
+</head>
+<body>
+
+<div class="container clearfix">
+  <div class="sidebar-wrap">
+    <div class="sidebar-title">
+      <h1>菜单</h1>
+    </div>
+    <div class="sidebar-content">
+      <ul class="sidebar-list">
+        <li>
+          <a href="#"><i class="icon-font"></i>常用操作</a>
+          <ul class="sub-menu">
+            <li><a href="admin_user.html"><i class="icon-font">&#xe008;</i>用户管理</a></li>
+            <li><a href="admin_cate.html"><i class="icon-font">&#xe005;</i>分类管理</a></li>
+            <li><a href="admin_product.html"><i class="icon-font">&#xe006;</i>商品管理</a></li>
+            <li><a href="admin_orders.html"><i class="icon-font">&#xe004;</i>订单管理</a></li>
+            <li><a href="admin_news.html"><i class="icon-font">&#xe012;</i>新闻管理</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#"><i class="icon-font"></i>系统管理</a>
+          <ul class="sub-menu">
+            <li><a href="system.html"><i class="icon-font"></i>修改密码</a></li>
+            <!--            <li><a href="system.html"><i class="icon-font"></i>系统设置</a></li>-->
+            <!--            <li><a href="system.html"><i class="icon-font"></i>清理缓存</a></li>-->
+            <!--            <li><a href="system.html"><i class="icon-font"></i>数据备份</a></li>-->
+            <!--            <li><a href="system.html"><i class="icon-font"></i>数据还原</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--/sidebar-->
+  <div class="main-wrap">
+      <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">用户管理</span></div>
+      </div>
+      <div class="search-wrap">
+        <div class="search-content">
+          <form action="#" method="post">
+            <table class="search-tab">
+              <tr>
+<!--                <th width="120">选择分类:</th>-->
+<!--                <td>-->
+<!--                  <select name="search-sort" id="">-->
+<!--                    <option value="">全部</option>-->
+<!--                    <option value="19">精品界面</option><option value="20">推荐界面</option>-->
+<!--                  </select>-->
+<!--                </td>-->
+                <th width="70">关键字:</th>
+                <td><input class="common-text" placeholder="关键字" name="keywords" value=""  type="text"></td>
+                <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </div>
+      <div class="result-wrap">
+        <form name="myform" id="myform" method="post">
+          <div class="result-title">
+            <div class="result-list">
+              <a href="admin_useradd.html"><i class="icon-font"></i>添加用户</a>
+            </div>
+          </div>
+          <div class="result-content">
+            <table id="list-user" class="result-tab" width="100%">
+              <tr>
+                <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>Emile</th>
+                <th>手机</th>
+                <th>管理员权限</th>
+                <th>操作</th>
+              </tr>
+              <tr id="user-list">
+                <td class="tc"><input name="id[]" value="" type="checkbox"></td>
+                <td> 1</td>
+                <td> 小王</td>
+                <td> 男</td>
+                <td> 15788495511@qq.com</td>
+                <td> 156547845615</td>
+
+                <td><a class="link-update" >修改</a>
+
+
+                  <a class="link-del">删除</a>
+
+                </td>
+
+              </tr>
+<!--              <tr id="user-list">-->
+<!--                <td class="tc"><input name="id[]" value="59" type="checkbox"></td>-->
+<!--                <td>-->
+<!--                  <input name="ids[]" value="59" type="hidden">-->
+<!--                  <input class="common-input sort-input" name="ord[]" value="0" type="text">-->
+<!--                </td>-->
+<!--                <td>59</td>-->
+<!--                <td title="发哥经典"><a target="_blank" href="#" title="发哥经典">发哥经典</a> …-->
+<!--                </td>-->
+<!--                <td>0</td>-->
+<!--                <td>2</td>-->
+<!--                <td>admin</td>-->
+<!--                <td>2014-03-15 21:11:01</td>-->
+<!--                <td></td>-->
+<!--                <td>-->
+<!--                  <a class="link-update" href="#">修改</a>-->
+<!--                  <a class="link-del" href="#">删除</a>-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr id="user-list">-->
+<!--                <td class="tc"><input name="id[]" value="58" type="checkbox"></td>-->
+<!--                <td>-->
+<!--                  <input name="ids[]" value="58" type="hidden">-->
+<!--                  <input class="common-input sort-input" name="ord[]" value="0" type="text">-->
+<!--                </td>-->
+<!--                <td>58</td>-->
+<!--                <td title="黑色经典"><a target="_blank" href="#" title="黑色经典">黑色经典</a> …-->
+<!--                </td>-->
+<!--                <td>0</td>-->
+<!--                <td>35</td>-->
+<!--                <td>admin</td>-->
+<!--                <td>2013-12-30 22:34:00</td>-->
+<!--                <td></td>-->
+<!--                <td>-->
+<!--                  <a class="link-update" href="#">修改</a>-->
+<!--                  <a class="link-del" href="#">删除</a>-->
+<!--                </td>-->
+<!--              </tr>-->
+            </table>
+
+          </div>
+        </form>
+      </div>
+
+
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function (){
+    findAll();
+  });
+
+  function findAll(){
+
+  $("#user-list").empty();
+    $.ajax({
+      url:"/user/findAll",
+      type:"GET",
+      dataType:"json",
+      success:function (json){
+        if (json.state == 200){
+          let list = json.data;
+          // console.log(list)
+          for (let i=0;i<list.length;i++){
+            let html ='<tr>'+
+                    '<td class="tc"><input name="id[]" value="" type="checkbox"></td>\n' +
+                    '<td> #{userId}</td>\n' +
+                    '<td> #{userName}</td>\n' +
+                    '<td> #{userSex}</td>\n' +
+                    '<td> #{userEmail}</td>\n' +
+                    '<td> #{userMobile}</td>\n' +
+                    '<td> 否</td>\n' +
+                    '<td><a class="link-update" href="admin_usermodify.html?id=#{id}">修改</a> \n' +
+                    '<a class="link-del"  onclick="javascript:del(#{id});">删除</a>\n' +
+                    '</td>' +
+                    '</tr>';
+            //href="/user/del?id=#{id}"
+            html = html.replace(/#{id}/g,list[i].id);
+            html = html.replace(/#{userId}/g,list[i].userId);
+            html = html.replace(/#{userName}/g,list[i].userName);
+            html = html.replace("#{userSex}",list[i].userSex);
+            html = html.replace(/#{userEmail}/g,list[i].userEmail);
+            html = html.replace(/#{userMobile}/g,list[i].userMobile);
+
+            $("#list-user").append(html);
+          }
+
+
+        }else {
+          alert("用户加载不成功，请重新加载页面");
+          location.href="index.html";
+        }
+      },
+      error:function (xhr){
+        alert("加载时产生未知的错误："+xhr.status);
+      }
+    });
+
+  }
+//根据id删除对应的信息
+  function del(id){
+    let parmt = "?id="+id;
+    $.ajax({
+      url:"/user/del"+parmt,
+      type:"GET",
+      dataType:"json",
+      success:function (json){
+        if (json.state == 200){
+          alert("删除成功");
+          $("#list-user").empty();
+          findAll();
+        }else {
+          alert("用户加载不成功，请重新加载页面");
+          location.href="index.html";
+        }
+      },
+      error:function (xhr){
+        alert("加载时产生未知的错误："+xhr.status);
+      }
+    });
+  }
+</script>
+</body>
+</html>

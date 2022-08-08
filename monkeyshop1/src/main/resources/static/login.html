@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+</head>
+<body><!-------------------login-------------------------->
+<div class="login">
+    <form action="#" method="post">
+        <p></p>
+        <div class="msg-warn hide"><b></b>公共场所不建议自动登录，以防账号丢失</div>
+        <p><input id="userId" type="text" name="userId" value="" placeholder="昵称/邮箱/手机号"></p>
+        <p><input id="userPassword" type="text" name="userPassword" value="" placeholder="密码"></p>
+        <p><input id="ms-login" type="submit" name=""  value="登  录"></p>
+        <p class="txt"><a class="" href="reg.html">免费注册</a><a href="forget.html">忘记密码？</a></p>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function (){
+        $.cookie("userId","",{expires:-1});
+        $.cookie("isAdminLogin","",{expires:-1});
+        // alert("userId:"+userId);
+    });
+
+    $("#ms-login").click(function (){
+        var userId =$("#userId").val();
+        var userPassword = $("#userPassword").val();
+        var parmt = "?userId="+userId+"&userPassword="+userPassword;
+        // console.log("userId:"+userId+"pwd:"+userPassword);
+        $.ajax({
+            url:"/user/login"+parmt,
+            type:"POST",
+            dataType:"json",
+            success:function (json){
+                console.log(json.data.userId)
+                if (json.state == 200){
+                    alert("用户登录成功!");
+                    $.cookie('userId',json.data.userId,{expires:7})
+                    $.cookie('isAdminLogin',json.data.isAdminLogin,{expires:7})
+                    // SetCookie("userId",json.data.userId)
+                    if (json.data.isAdminLogin == 1){
+                        location.href = "manage/index.html";
+                    }else {
+                        location.href = "index.html";
+                    }
+                }else {
+                    alert("登录失败！账号或者密码不正确"+json.message);
+                    location.href="login.html";
+                }
+            },
+            error:function (xhr){
+                alert("登录时产生未知的错误："+xhr.status);
+            }
+        });
+    });
+</script>
+</body>
+</html>

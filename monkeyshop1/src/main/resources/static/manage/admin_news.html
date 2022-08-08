@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+</head>
+<body>
+<div class="sidebar-wrap">
+    <div class="sidebar-title">
+        <h1>菜单</h1>
+    </div>
+    <div class="sidebar-content">
+        <ul class="sidebar-list">
+            <li>
+                <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
+                <ul class="sub-menu">
+                    <li><a href="admin_user.html"><i class="icon-font">&#xe008;</i>用户管理</a></li>
+                    <li><a href="admin_cate.html"><i class="icon-font">&#xe005;</i>分类管理</a></li>
+                    <li><a href="admin_product.html"><i class="icon-font">&#xe006;</i>商品管理</a></li>
+                    <li><a href="admin_orders.html"><i class="icon-font">&#xe004;</i>订单管理</a></li>
+                    <li><a href="admin_news.html"><i class="icon-font">&#xe012;</i>新闻管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
+                <ul class="sub-menu">
+                    <li><a href="system.html"><i class="icon-font"></i>修改密码</a></li>
+                    <!--          <li><a href="system.html"><i class="icon-font">&#xe017;</i>系统设置</a></li>-->
+                    <!--          <li><a href="system.html"><i class="icon-font">&#xe037;</i>清理缓存</a></li>-->
+                    <!--          <li><a href="system.html"><i class="icon-font">&#xe046;</i>数据备份</a></li>-->
+                    <!--          <li><a href="system.html"><i class="icon-font">&#xe045;</i>数据还原</a></li>-->
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main-wrap">
+
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="admin_index.jsp">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">新闻管理</span></div>
+    </div>
+
+    <div class="result-wrap">
+        <form action="/MonkeyShop/manage/admin_douserdel" id="myform" method="post">
+            <div class="result-title">
+                <div class="result-list">
+                    <a href="#"><i class="icon-font"></i>新增商品</a>
+
+                    <!-- <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a> -->
+                </div>
+            </div>
+            <div class="result-content">
+                <table class="result-tab" width="100%">
+                    <tr>
+
+                        <th>序号</th>
+                        <th>类型</th>
+                        <th>公告标题</th>
+                        <th>发布时间</th>
+                        <th>操作</th>
+
+                    </tr>
+                    <tr>
+
+                        <td>1</td>
+                        <td>公告</td>
+                        <td>本月优惠活动</td>
+                        <td>2021-02-03 18：28</td>
+                        <td>
+                            <a href="#">编辑</a>/
+                            <a href="#">删除</a>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>1</td>
+                        <td>其他</td>
+                        <td>其他信息</td>
+                        <td>2021-02-03 18：28</td>
+                        <td>
+                            <a href="#">编辑</a>/
+                            <a href="#">删除</a>
+                        </td>
+
+                    </tr>
+
+
+                </table>
+<!--                <a href="#">共${total }条</a>-->
+<!--                <a href="admin_toorderselect?currentPage=1">首页</a>-->
+<!--                <a href="admin_toorderselect?currentPage=${page.getPrePage() }">上一页</a>-->
+<!--                <%&#45;&#45; <a href="#">共${page.getcuurentPage() }条</a> &#45;&#45;%>-->
+<!--                <a href="admin_toorderselect?currentPage=${page.getNextPage() }">下一页</a>-->
+<!--                <a href="admin_toorderselect?currentPage=${page.getTotalPage() }">尾页</a>-->
+
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

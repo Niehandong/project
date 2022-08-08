@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8"/>
+    <title>cart</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="css/proList.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <style>
+        .cart div.site{
+            margin-top: -70px;
+        }
+        caption, th, td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body><!--------------------------------------cart--------------------->
+<div class="head">
+    <div class="wrapper clearfix">
+        <div class="clearfix" id="top">
+            <div class="fr clearfix" id="top1"><p class="fl">
+                <a href="login.html" id="login">登录</a>
+                <a href="reg.html" id="reg">注册</a>
+
+            </p>
+                <!--                <form action="#" method="get" class="fl"><input type="text" placeholder="热门搜索：干花花瓶"/><input-->
+                <!--                        type="button"/></form>-->
+                <!--                <div class="btn fl clearfix">-->
+                <!--                    <a href="mygxin.html"><img src="img/grzx.png"/></a>-->
+                <!--&lt;!&ndash;                    <a href="#" class="er1"><img&ndash;&gt;-->
+                <!--&lt;!&ndash;                        src="img/ewm.png"/></a>&ndash;&gt;-->
+                <!--                    <a href="cart.html"><img src="img/gwc.png"/></a>-->
+
+                <!--&lt;!&ndash;                    <p><a href="#"><img src="img/smewm.png"/></a></p>&ndash;&gt;-->
+                <!--                </div>-->
+            </div>
+        </div>
+        <ul class="clearfix" id="bott">
+            <li><a href="index.html">首页</a></li>
+            <!--            <li><a href="#">所有商品</a>-->
+            <!--                <div class="sList">-->
+            <!--                    <div class="wrapper  clearfix"><a href="paint.html">-->
+            <!--                        <dl>-->
+            <!--                            <dt><img src="img/nav1.jpg"/></dt>-->
+            <!--                            <dd>浓情欧式</dd>-->
+            <!--                        </dl>-->
+            <!--                    </a><a href="paint.html">-->
+            <!--                        <dl>-->
+            <!--                            <dt><img src="img/nav2.jpg"/></dt>-->
+            <!--                            <dd>浪漫美式</dd>-->
+            <!--                        </dl>-->
+            <!--                    </a><a href="paint.html">-->
+            <!--                        <dl>-->
+            <!--                            <dt><img src="img/nav3.jpg"/></dt>-->
+            <!--                            <dd>雅致中式</dd>-->
+            <!--                        </dl>-->
+            <!--                    </a><a href="paint.html">-->
+            <!--                        <dl>-->
+            <!--                            <dt><img src="img/nav6.jpg"/></dt>-->
+            <!--                            <dd>简约现代</dd>-->
+            <!--                        </dl>-->
+            <!--                    </a><a href="paint.html">-->
+            <!--                        <dl>-->
+            <!--                            <dt><img src="img/nav7.jpg"/></dt>-->
+            <!--                            <dd>创意装饰</dd>-->
+            <!--                        </dl>-->
+            <!--                    </a></div>-->
+            <!--                </div>-->
+            <!--            </li>-->
+            <li id="list-cate">
+                <a href="flowerDer.html">装饰摆件</a>
+                <div class="sList2" id="cate-list">
+                    <div class="clearfix">
+                        <a href="proList.html">干花花艺</a><a href="vase_proList.html">花瓶花器</a>
+                    </div>
+                </div>
+            </li>
+            <!--            <li><a href="decoration.html">布艺软饰</a>-->
+            <!--                <div class="sList2">-->
+            <!--                    <div class="clearfix"><a href="zbproList.html">桌布罩件</a><a href="bzproList.html">抱枕靠垫</a></div>-->
+            <!--                </div>-->
+            <!--            </li>-->
+            <!--            <li><a href="paint.html">墙式壁挂</a></li>-->
+            <!--            <li><a href="perfume.html">蜡艺香薰</a></li>-->
+            <!--            <li><a href="idea.html">创意家居</a></li>-->
+        </ul>
+    </div>
+</div>
+
+<!--<div class="head ding">-->
+<!--    <div class="wrapper clearfix">-->
+<!--        <div class="clearfix" id="top"><h1 class="fl"><a href="index.html"><img src="img/logo.png"/></a></h1>-->
+<!--            <div class="fr clearfix" id="top1"><p class="fl"><a href="login.html" id="login">登录</a><a href="reg.html"-->
+<!--                                                                                                      id="reg">注册</a>-->
+<!--            </p>-->
+<!--                <form action="#" method="get" class="fl"><input type="text" placeholder="搜索"/><input type="button"/>-->
+<!--                </form>-->
+<!--                <div class="btn fl clearfix"><a href="mygxin.html"><img src="img/grzx.png"/></a><a href="#" class="er1"><img-->
+<!--                        src="img/ewm.png"/></a><a href="cart.html"><img src="img/gwc.png"/></a>-->
+<!--                    <p><a href="#"><img src="img/smewm.png"/></a></p></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <ul class="clearfix" id="bott">-->
+<!--            <li><a href="index.html">首页</a></li>-->
+<!--            <li><a href="#">所有商品</a>-->
+<!--                <div class="sList">-->
+<!--                    <div class="wrapper  clearfix"><a href="paint.html">-->
+<!--                        <dl>-->
+<!--                            <dt><img src="img/nav1.jpg"/></dt>-->
+<!--                            <dd>浓情欧式</dd>-->
+<!--                        </dl>-->
+<!--                    </a><a href="paint.html">-->
+<!--                        <dl>-->
+<!--                            <dt><img src="img/nav2.jpg"/></dt>-->
+<!--                            <dd>浪漫美式</dd>-->
+<!--                        </dl>-->
+<!--                    </a><a href="paint.html">-->
+<!--                        <dl>-->
+<!--                            <dt><img src="img/nav3.jpg"/></dt>-->
+<!--                            <dd>雅致中式</dd>-->
+<!--                        </dl>-->
+<!--                    </a><a href="paint.html">-->
+<!--                        <dl>-->
+<!--                            <dt><img src="img/nav6.jpg"/></dt>-->
+<!--                            <dd>简约现代</dd>-->
+<!--                        </dl>-->
+<!--                    </a><a href="paint.html">-->
+<!--                        <dl>-->
+<!--                            <dt><img src="img/nav7.jpg"/></dt>-->
+<!--                            <dd>创意装饰</dd>-->
+<!--                        </dl>-->
+<!--                    </a></div>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li><a href="flowerDer.html">装饰摆件</a>-->
+<!--                <div class="sList2">-->
+<!--                    <div class="clearfix"><a href="proList.html">干花花艺</a><a href="vase_proList.html">花瓶花器</a></div>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li><a href="decoration.html">布艺软饰</a>-->
+<!--                <div class="sList2">-->
+<!--                    <div class="clearfix"><a href="zbproList.html">桌布罩件</a><a href="bzproList.html">抱枕靠垫</a></div>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li><a href="paint.html">墙式壁挂</a></li>-->
+<!--            <li><a href="perfume.html">蜡艺香薰</a></li>-->
+<!--            <li><a href="idea.html">创意家居</a></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div class="cart mt"><!-----------------logo------------------->
+    <!--<div class="logo"><h1 class="wrapper clearfix"><a href="index.html"><img class="fl" src="img/temp/logo.png"></a><img class="top" src="img/temp/cartTop01.png"></h1></div>-->
+    <!-----------------site------------------->
+    <div class="site">
+        <p class=" wrapper clearfix">
+<!--            <span class="fl">购物车</span>-->
+            <img class="top" src="img/temp/cartTop01.png"><a
+            href="index.html" class="fr">继续购物&gt;</a></p>
+    </div>
+    <!-----------------table------------------->
+    <div class="table wrapper" >
+<!--        <div class="tr">-->
+<!--            <div>商品</div>-->
+<!--            <div>单价</div>-->
+<!--            <div>数量</div>-->
+<!--            <div>小计</div>-->
+<!--            <div>操作</div>-->
+<!--        </div>-->
+<!--        <div class="th" >-->
+
+<!--            <div class="pro clearfix"><label class="fl">-->
+<!--                <input type="checkbox"/>-->
+<!--                <span></span></label>-->
+<!--                <a class="fl" href="#">-->
+<!--                <dl class="clearfix">-->
+<!--                    <dt class="fl"><img src="img/temp/cart01.jpg"></dt>-->
+<!--                    <dd class="fl"><p>创意现代简约干花花瓶摆件</p>-->
+<!--                        <p>颜色分类:</p>-->
+<!--                        <p>白色瓷瓶+白色串枚</p></dd>-->
+<!--                </dl>-->
+<!--            </a>-->
+<!--            </div>-->
+<!--            <div class="price">￥20.00</div>-->
+<!--            <div class="number"><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span-->
+<!--                    class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></div>-->
+<!--            <div class="price sAll">￥20.00</div>-->
+<!--            <div class="price"><a class="del" href="#2">删除</a></div>-->
+
+<!--        </div>-->
+        <table id="cart-list" class="result-content" width="100%" style="border-collapse:collapse;border: 2px solid #ddd;text-align: center;">
+            <tr style="background:url(../manage/images/tab-thbg.png) #f9f9f9 0 bottom repeat-x ;text-align: center;font-size: 14px;line-height: 35px">
+
+                <th>商品</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+
+            </tr>
+            <tr style="font-size: 16px" id="list-cart">
+                <td>
+                        <label class="fl">
+                        <input type="checkbox"/>
+                        <span></span></label>
+                        <a class="fl" href="#">
+                            <dl class="clearfix">
+                                <dt class="fl"><img src="img/temp/cart01.jpg"></dt>
+                                <dd class="fl"><p>创意现代简约干花花瓶摆件</p>
+                                    <p>颜色分类:</p>
+                                    <p>白色瓷瓶+白色串枚</p></dd>
+                            </dl>
+                        </a>
+                </td>
+                <td>￥20.00</td>
+                <td><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span
+                        class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></td>
+                <td>￥20.00</td>
+                <td><a class="del" href="#2">删除</a></td>
+            </tr>
+        </table>
+
+<!--        <div class="th">-->
+<!--            <div class="pro clearfix"><label class="fl"><input type="checkbox"/><span></span></label><a class="fl"-->
+<!--                                                                                                        href="#">-->
+<!--                <dl class="clearfix">-->
+<!--                    <dt class="fl"><img src="img/temp/cart02.jpg"></dt>-->
+<!--                    <dd class="fl"><p>创意现代简约干花花瓶摆件</p>-->
+<!--                        <p>颜色分类:</p>-->
+<!--                        <p>白色瓷瓶+白色串枚</p></dd>-->
+<!--                </dl>-->
+<!--            </a></div>-->
+<!--            <div class="price">￥30.00</div>-->
+<!--            <div class="number"><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span-->
+<!--                    class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></div>-->
+<!--            <div class="price sAll">￥30.00</div>-->
+<!--            <div class="price"><a class="del" href="#2">删除</a></div>-->
+<!--        </div>-->
+<!--        <div class="th">-->
+<!--            <div class="pro clearfix"><label class="fl"><input type="checkbox"/><span></span></label><a class="fl"-->
+<!--                                                                                                        href="#">-->
+<!--                <dl class="clearfix">-->
+<!--                    <dt class="fl"><img src="img/temp/cart03.jpg"></dt>-->
+<!--                    <dd class="fl"><p>创意现代简约干花花瓶摆件</p>-->
+<!--                        <p>颜色分类:</p>-->
+<!--                        <p>白色瓷瓶+白色串枚</p></dd>-->
+<!--                </dl>-->
+<!--            </a></div>-->
+<!--            <div class="price">￥59.99</div>-->
+<!--            <div class="number"><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span-->
+<!--                    class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></div>-->
+<!--            <div class="price sAll">￥59.99</div>-->
+<!--            <div class="price"><a class="del" href="#2">删除</a></div>-->
+<!--        </div>-->
+<!--        <div class="th">-->
+<!--            <div class="pro clearfix"><label class="fl"><input type="checkbox"/><span></span></label><a class="fl"-->
+<!--                                                                                                        href="#">-->
+<!--                <dl class="clearfix">-->
+<!--                    <dt class="fl"><img src="img/temp/cart01.jpg"></dt>-->
+<!--                    <dd class="fl"><p>创意现代简约干花花瓶摆件</p>-->
+<!--                        <p>颜色分类:</p>-->
+<!--                        <p>白色瓷瓶+白色串枚</p></dd>-->
+<!--                </dl>-->
+<!--            </a></div>-->
+<!--            <div class="price">￥20.00</div>-->
+<!--            <div class="number"><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span-->
+<!--                    class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></div>-->
+<!--            <div class="price sAll">￥20.00</div>-->
+<!--            <div class="price"><a class="del" href="#2">删除</a></div>-->
+<!--        </div>-->
+<!--        <div class="th">-->
+<!--            <div class="pro clearfix"><label class="fl"><input type="checkbox"/><span></span></label><a class="fl"-->
+<!--                                                                                                        href="#">-->
+<!--                <dl class="clearfix">-->
+<!--                    <dt class="fl"><img src="img/temp/cart02.jpg"></dt>-->
+<!--                    <dd class="fl"><p>创意现代简约干花花瓶摆件</p>-->
+<!--                        <p>颜色分类:</p>-->
+<!--                        <p>白色瓷瓶+白色串枚</p></dd>-->
+<!--                </dl>-->
+<!--            </a></div>-->
+<!--            <div class="price">￥30.00</div>-->
+<!--            <div class="number"><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span-->
+<!--                    class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></div>-->
+<!--            <div class="price sAll">￥30.00</div>-->
+<!--            <div class="price"><a class="del" href="#2">删除</a></div>-->
+<!--        </div>-->
+<!--        <div class="th">-->
+<!--            <div class="pro clearfix"><label class="fl"><input type="checkbox"/><span></span></label><a class="fl"-->
+<!--                                                                                                        href="#">-->
+<!--                <dl class="clearfix">-->
+<!--                    <dt class="fl"><img src="img/temp/cart03.jpg"></dt>-->
+<!--                    <dd class="fl"><p>创意现代简约干花花瓶摆件</p>-->
+<!--                        <p>颜色分类:</p>-->
+<!--                        <p>白色瓷瓶+白色串枚</p></dd>-->
+<!--                </dl>-->
+<!--            </a></div>-->
+<!--            <div class="price">￥59.99</div>-->
+<!--            <div class="number"><p class="num clearfix"><img class="fl sub" src="img/temp/sub.jpg"><span-->
+<!--                    class="fl">1</span><img class="fl add" src="img/temp/add.jpg"></p></div>-->
+<!--            <div class="price sAll">￥59.99</div>-->
+<!--            <div class="price"><a class="del" href="#2">删除</a></div>-->
+<!--        </div>-->
+
+
+        <div class="goOn">空空如也~<a href="index.html">去逛逛</a></div>
+        <div class="tr clearfix"><label class="fl"><input class="checkAll" type="checkbox"/><span></span></label>
+            <p class="fl"><a href="#">全选</a><a href="#" class="del">删除</a></p>
+            <p class="fr"><span>共<small id="sl">0</small>件商品</span><span>合计:&nbsp;<small id="all">￥0.00</small></span><a
+                    href="javascript:toorder()" class="count">结算</a></p></div>
+    </div>
+</div>
+<div class="mask"></div>
+<!--<div class="tipDel"><p>确定要删除该商品吗？</p>-->
+<!--    <p class="clearfix"><a class="fl cer" href="#">确定</a><a class="fr cancel" href="#">取消</a></p></div>-->
+
+<!--返回顶部-->
+<div class="gotop"><a href="cart.html">
+    <dl>
+        <dt><img src="img/gt1.png"/></dt>
+        <dd>去购<br/>物车</dd>
+    </dl>
+</a><a href="#" class="dh">
+    <dl>
+        <dt><img src="img/gt2.png"/></dt>
+        <dd>联系<br/>客服</dd>
+    </dl>
+</a><a href="mygxin.html">
+    <dl>
+        <dt><img src="img/gt3.png"/></dt>
+        <dd>个人<br/>中心</dd>
+    </dl>
+</a><a href="#" class="toptop" style="display: none;">
+    <dl>
+        <dt><img src="img/gt4.png"/></dt>
+        <dd>返回<br/>顶部</dd>
+    </dl>
+</a>
+    <p>400-800-8200</p></div><!--footer-->
+<div class="footer">
+    <div class="top">
+        <div class="wrapper">
+            <div class="clearfix"><a href="#2" class="fl"><img src="img/foot1.png"/></a><span class="fl">7天无理由退货</span>
+            </div>
+            <div class="clearfix"><a href="#2" class="fl"><img src="img/foot2.png"/></a><span class="fl">15天免费换货</span>
+            </div>
+            <div class="clearfix"><a href="#2" class="fl"><img src="img/foot3.png"/></a><span class="fl">满599包邮</span>
+            </div>
+            <div class="clearfix"><a href="#2" class="fl"><img src="img/foot4.png"/></a><span class="fl">手机特色服务</span>
+            </div>
+        </div>
+    </div>
+    <p class="dibu">最家家居&copy;2013-2017公司版权所有 京ICP备080100-44备0000111000号<br/>
+        违法和不良信息举报电话：188-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</p></div><!----------------mask------------------->
+<div class="mask"></div><!-------------------mask内容------------------->
+<div class="proDets"><img class="off" src="img/temp/off.jpg"/>
+    <div class="proCon clearfix">
+        <div class="proImg fr"><img class="list" src="img/temp/proDet.jpg"/>
+            <div class="smallImg clearfix"><img src="img/temp/proDet01.jpg" data-src="img/temp/proDet01_big.jpg"><img
+                    src="img/temp/proDet02.jpg" data-src="img/temp/proDet02_big.jpg"><img src="img/temp/proDet03.jpg"
+                                                                                          data-src="img/temp/proDet03_big.jpg"><img
+                    src="img/temp/proDet04.jpg" data-src="img/temp/proDet04_big.jpg"></div>
+        </div>
+        <div class="fl">
+            <div class="proIntro change"><p>颜色分类</p>
+                <div class="smallImg clearfix"><p class="fl on"><img src="img/temp/prosmall01.jpg" alt="白瓷花瓶+20支快乐花"
+                                                                     data-src="img/temp/proBig01.jpg"></p>
+                    <p class="fl"><img src="img/temp/prosmall02.jpg" alt="白瓷花瓶+20支兔尾巴草"
+                                       data-src="img/temp/proBig02.jpg"></p>
+                    <p class="fl"><img src="img/temp/prosmall03.jpg" alt="20支快乐花" data-src="img/temp/proBig03.jpg"></p>
+                    <p class="fl"><img src="img/temp/prosmall04.jpg" alt="20支兔尾巴草" data-src="img/temp/proBig04.jpg"></p>
+                </div>
+            </div>
+            <div class="changeBtn clearfix"><a href="#2" class="fl"><p class="buy">确认</p></a><a href="#2" class="fr"><p
+                    class="cart">取消</p></a></div>
+        </div>
+    </div>
+</div>
+<div class="pleaseC"><p>请选择宝贝</p><img class="off" src="img/temp/off.jpg"/></div>
+<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/pro.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function (){
+        //页面刷新后检查用户是否登录
+        login();
+        //查询所有分类信息
+        findAllCategory();
+        //根据用户名称查询对应的商品信息
+        findByUserId();
+    });
+
+    //点击删除按钮的操作
+   function cartDel(cartId){
+       let userId = $.cookie("userId");
+       let parmt = "?cartId="+cartId+"&&userId="+userId;
+
+       $.ajax({
+           url:"/cart/cartDel"+parmt,
+           type:"GET",
+           dataType:"json",
+           success:function (json){
+               if (json.state == 200){
+                   alert("删除成功");
+                   location.href = "cart.html";
+
+               }else {
+                   alert("删除商品失败"+json.message);
+
+               }
+           },
+           error:function (xhr){
+               alert("删除商品时产生未知的错误："+xhr.status);
+           }
+       });
+   }
+    //增加商品数量
+    function add(cartId,cartQuantity) {
+        let userId = $.cookie("userId");
+        let parmt = "?cartId="+cartId+"&&userId="+userId+"&&cartQuantity="+cartQuantity;
+
+        $.ajax({
+            url:"/cart/addNum"+parmt,
+            type:"GET",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200){
+                    // alert("123")
+                    location.href = "cart.html";
+
+                }else {
+                    alert("增加商品数量失败"+json.message);
+
+                }
+            },
+            error:function (xhr){
+                alert("增加商品数量时产生未知的错误："+xhr.status);
+            }
+        });
+    }
+    //减少商品数量
+    function sub(cartId,cartQuantity) {
+        // alert("cartId:"+cartId);
+        let userId = $.cookie("userId");
+        let parmt = "?cartId="+cartId+"&&userId="+userId+"&&cartQuantity="+cartQuantity;
+
+        $.ajax({
+            url:"/cart/subNum"+parmt,
+            type:"GET",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200){
+                    // alert("123")
+                    location.href = "cart.html";
+
+                }else {
+                    alert("减少商品数量失败"+json.message);
+
+                }
+            },
+            error:function (xhr){
+                alert("减少商品数量时产生未知的错误："+xhr.status);
+            }
+        });
+    }
+
+    //获取复选框内的值,跳转到订单页面
+    function toorder() {
+        var str = "";
+
+        $("input[name='ck']:checked").each(function (index, item) {
+            if ($("input[name='ck']:checked").length - 1 == index) {
+                str += $(this).val();
+            } else {
+                str += $(this).val() + ",";
+            }
+
+        });
+        // alert("str:"+str);
+        if (str ==""){
+            alert("请勾选商品信息");
+            location.href = "cart.html";
+        }else {
+            let parmt = "?eids="+str;
+            top.location.href = "order.html"+parmt;
+        }
+    }
+
+    //根据用户名称查询对应的商品信息
+    function findByUserId(){
+        var userId = $.cookie("userId");
+        let parmt = "?userId="+userId;
+
+        $.ajax({
+            url:"/cart/findByUserId"+parmt,
+            type:"GET",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200) {
+                    let cart = json.data;
+                    $("#list-cart").empty();
+                    // console.log(cart);
+                    let cout = 0;
+                    for (let i = 0; i < cart.length; i++) {
+                        let html = '<tr style="font-size: 16px">\n' +
+                            '                <td>\n' +
+                            '                        <label class="fl">\n' +
+                            '                        <input type="checkbox" name="ck" value="#{cartId}"/>\n' +
+                            '                        <span></span></label>\n' +
+                            '                        <a class="fl" href="#">\n' +
+                            '                            <dl class="clearfix">\n' +
+                            '                                <dt class="fl"><img src="#{cartPFilename}" style="width: 120px;height: 120px"></dt>\n' +
+                            '                                <dd class="fl"><p>#{cartPName}</p>\n' +
+                            '                                    <p>颜色分类:</p>\n' +
+                            '                                    <p>白色瓷瓶+白色串枚</p></dd>\n' +
+                            '                            </dl>\n' +
+                            '                        </a>\n' +
+                            '                </td>\n' +
+                            '                <td>￥#{cartPPrice}</td>\n' +
+                            '                <td><p class="num clearfix">' +
+                            '                   <img class="fl sub" src="img/temp/sub.jpg" onclick="sub(#{cartId},#{cartQuantity})"><span\n' +
+                            '                        class="fl">&nbsp;&nbsp;#{cartQuantity}&nbsp;&nbsp;</span>' +
+                            '                   <img class="fl add" src="img/temp/add.jpg" onclick="add(#{cartId},#{cartQuantity})"></p></td>\n' +
+                            '                <td>￥#{total}</td>\n' +
+                            '                <td><a class="del" onclick="cartDel(#{cartId})">删除</a></td>\n' +
+                            '            </tr>';
+
+                        html = html.replace(/#{cartId}/g, cart[i].cartId);
+                        html = html.replace(/#{cartPFilename}/g, cart[i].cartPFilename);
+                        html = html.replace(/#{cartPName}/g, cart[i].cartPName);
+                        html = html.replace(/#{cartPPrice}/g, cart[i].cartPPrice);
+                        html = html.replace(/#{cartQuantity}/g, cart[i].cartQuantity);
+                        html = html.replace(/#{total}/g, cart[i].cartQuantity * cart[i].cartPPrice);
+
+                        cout = cout + cart[i].cartQuantity * cart[i].cartPPrice
+
+                        $("#cart-list").append(html);
+
+                    }
+                    // console.log("cout:"+cout+"&&&size:"+cart.length);
+                    $("#all").text("￥"+cout+"元");
+                    $("#sl").text(cart.length);
+
+                }else {
+                    alert("用户加载不成功，请重新加载页面");
+                    location.href="index.html";
+                }
+            },
+            error:function (xhr){
+                alert("加载时产生未知的错误："+xhr.status);
+            }
+        });
+    }
+
+    //查询所有分类信息
+    function findAllCategory(){
+        $.ajax({
+            url:"/category/findAll",
+            type:"GET",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200) {
+                    let parent = json.data.parent;
+                    let children = json.data.children;
+                    // console.log(parent);
+                    // console.log(children);
+                    $("#list-cate").empty();
+                    for (let i = 0; i < parent.length; i++) {
+                        var cate = "cae";
+                        let html = '<li id="list-cate">\n' +
+                            '                                    <a href="flowerDer.html?fid=#{cateId}">#{cateName}</a>\n' +
+                            '                                    <div className="sList2" id="cate-list">\n' +
+                            '                                        <div className="clearfix" id="children">\n' +
+                            // '                                            <a href="proList.html">干花花艺</a><a href="vase_proList.html">花瓶花器</a>\n' +
+                            '                                        </div>\n' +
+                            '                                    </div>\n' +
+                            '                                </li>';
+
+                        html = html.replace(/#{cateId}/g, parent[i].cateId);
+                        html = html.replace(/#{cateName}/g, parent[i].cateName);
+                        // html = html.replace(/#{catePatentId}/g, parent[i].catePatentId);
+
+                        $("#list-cate").append(html);
+
+                        // for (let j = 0;j<children.length;j++){
+                        //     let html2 = '';
+                        //     if (parent[i].cateId==children[j].catePatentId &&children[j].catePatentId !=0 ){
+                        //         console.log(parent[i]);
+                        //         console.log(children[j].cateId);
+                        //         console.log(children[j].cateName);
+                        //         console.log(children[j].catePatentId);
+                        //         let html2 = '<a href="proList.html">#{cateName}</a>';
+                        //         html2 = html2.replace(/#{cateId}/g,children[j].cateId);
+                        //         html2 = html2.replace(/#{cateName}/g,children[j].cateName);
+                        //         // html2 = html2.replace(/#{catePatentId}/g,children[j].catePatentId);
+                        //         $("#children").append(html2);
+                        //     }
+                        //     // $("#cate-list").append(html2);
+                        // }
+                        // $("#cate-list").append(html);
+                    }
+
+                }else {
+                    alert("用户加载不成功，请重新加载页面");
+                    location.href="index.html";
+                }
+            },
+            error:function (xhr){
+                alert("加载时产生未知的错误："+xhr.status);
+            }
+        });
+    }
+    //页面刷新后检查用户是否登录
+    function login(){
+        let userId = $.cookie("userId");
+        var login = document.getElementById("login");
+        var reg = document.getElementById("reg");
+        if (userId ==null ){
+            // location.href = "../login.html";
+            login.innerText = "登录";
+            login.href="login.html";
+
+
+        }else {
+            login.innerText = userId;
+            login.href="#";
+            let isAdminLogin = $.cookie("isAdminLogin");
+            // console.log("login:"+isAdminLogin);
+            if (isAdminLogin == 1){
+                reg.innerText = "去后台页面";
+                reg.href="manage/index.html";
+            }else {
+                reg.innerText = "";
+            }
+        }
+    }
+</script>
+</body>
+</html>

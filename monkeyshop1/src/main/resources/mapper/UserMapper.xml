@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.monkeyshop.mapper.UserMapper">
+<resultMap id="baseresultMap" type="com.example.monkeyshop.pojo.User">
+    <id column="id" property="id" />
+    <result column="user_id" property="userId" />
+    <result column="user_name" property="userName" />
+    <result column="user_password" property="userPassword" />
+    <result column="user_sex" property="userSex" />
+    <result column="user_birthday" property="userBirthday" />
+    <result column="user_email" property="userEmail" />
+    <result column="user_current" property="userCurrent" />
+    <result column="user_update" property="userUpdate" />
+    <result column="user_address" property="userAddress" />
+    <result column="user_status" property="userStatus" />
+    <result column="user_mobile" property="userMobile" />
+    <result column="isAdminLogin" property="isAdminLogin" />
+</resultMap>
+
+    <insert id="insert">
+        INSERT INTO user(
+            user_id,user_name,user_password,user_sex,user_birthday,user_email,user_address,user_mobile,user_status,user_current,user_update,isAdminLogin)
+                         VALUES(#{userId},#{userName},#{userPassword},#{userSex},#{userBirthday},#{userEmail},#{userAddress},#{userMobile},#{userStatus},#{userCurrent},#{userUpdate},#{isAdminLogin})
+    </insert>
+    <update id="userUpdate">
+        UPDATE user SET
+                <if test="userName !=null">
+                        user_name = #{userName},
+                </if>
+                <if test="userSex !=null">
+                    user_sex = #{userSex},
+                </if>
+                <if test="userPassword !=null">
+                    user_password = #{userPassword} ,
+                </if>
+                <if test="userBirthday !=null">
+                    user_birthday = #{userBirthday} ,
+                </if>
+                <if test="userEmail !=null">
+                    user_email = #{userEmail},
+                </if>
+                <if test="userAddress !=null">
+                    user_address = #{userAddress},
+                </if>
+                <if test="userMobile !=null">
+                    user_mobile = #{userMobile},
+                </if>
+                    user_update=#{userUpdate}
+                WHERE user_id = #{userId}
+    </update>
+    <delete id="delById">
+        DELETE FROM user WHERE id =#{userId}
+    </delete>
+    <select id="findusername" resultMap="baseresultMap">
+        select * from user where user_id=#{userId}
+    </select>
+    <select id="login" resultMap="baseresultMap">
+        SELECT * FROM user WHERE user_id=#{userId} AND user_password = #{userPassword}
+    </select>
+    <select id="findByUserId" resultMap="baseresultMap">
+        SELECT * FROM user WHERE user_id = #{userId}
+    </select>
+    <select id="findAll" resultMap="baseresultMap">
+        select * from user
+    </select>
+    <select id="totalPage" resultType="java.lang.Integer">
+        select count(*) from user
+        <if test="keyword != null">
+            where user_name = #{keyword}
+        </if>
+    </select>
+    <select id="findById" resultMap="baseresultMap">
+        select * from user where id=#{id}
+    </select>
+</mapper>

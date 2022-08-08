@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.monkeyshop.mapper.CategoryMapper">
+<resultMap id="baseresultMap" type="com.example.monkeyshop.pojo.Category">
+    <id column="cate_id" property="cateId" />
+    <result column="cate_name" property="cateName" />
+    <result column="cate_patent_id" property="catePatentId" />
+
+</resultMap>
+    <insert id="insert">
+        INSERT into category (cate_name,cate_patent_id) VALUES(#{cateName},#{catePatentId})
+    </insert>
+    <update id="updateById">
+        UPDATE category set cate_name= #{cateName} ,cate_patent_id=#{catePatentId} WHERE cate_id = #{cateId}
+    </update>
+    <delete id="del">
+        DELETE FROM category WHERE cate_id = #{cateId}
+    </delete>
+    <select id="findAll" resultMap="baseresultMap">
+        select * from category
+    </select>
+    <select id="findAllParent" resultMap="baseresultMap">
+        select * from category where cate_patent_id = 0
+    </select>
+    <select id="findById" resultMap="baseresultMap">
+        select * from category where cate_id = #{cateId}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.monkeyshop.mapper.CartMapper">
+<resultMap id="baseresultMap" type="com.example.monkeyshop.pojo.Cart">
+    <id column="cart_id" property="cartId" />
+    <result column="cart_p_filename" property="cartPFilename" />
+    <result column="cart_p_name" property="cartPName" />
+    <result column="cart_p_price" property="cartPPrice" />
+    <result column="cart_quantity" property="cartQuantity" />
+    <result column="cart_p_stock" property="cartPStock" />
+    <result column="cart_p_id" property="cartPId" />
+    <result column="cart_u_id" property="cartUId" />
+    <result column="cart_u_userid" property="cartUUserid" />
+    <result column="cart_u_name" property="cartUName" />
+    <result column="cart_u_mobile" property="cartUMobile" />
+    <result column="cart_u_address" property="cartUAddress" />
+    <result column="currentTime" property="currentTime" />
+    <result column="updateTime" property="updateTime" />
+    <result column="cart_valid" property="cartValid" />
+</resultMap>
+    <insert id="insert">
+        insert into cart(
+            cart_p_filename,cart_p_name,cart_p_price,cart_quantity,
+            cart_p_stock,cart_p_id,cart_u_id,cart_u_userid,cart_u_name,
+            cart_u_mobile,cart_u_address,currentTime,updateTime,cart_valid
+        )VALUES
+        (#{cartPFilename},#{cartPName},#{cartPPrice},#{cartQuantity},
+         #{cartPStock},#{cartPId},#{cartUId},#{cartUUserid},#{cartUName},
+         #{cartUMobile},#{cartUAddress},#{currentTime},#{updateTime},#{cartValid}
+         )
+    </insert>
+    <update id="updateById">
+        update cart set
+        <if test="cartQuantity !=null">
+            cart_quantity = #{cartQuantity},
+        </if>
+        updateTime=#{updateTime}
+        WHERE cart_id = #{cartId}
+    </update>
+    <update id="updateByValid">
+        update cart set cart_valid = 1,updateTime=#{updateTime} where cart_u_userid = #{userId} and cart_id = #{cartId}
+    </update>
+    <select id="eids" resultMap="baseresultMap">
+        select * from cart where cart_u_userid = #{userId} and cart_id in
+            <foreach collection="ids" open="(" separator="," close=")" item="id">
+                #{id}
+            </foreach>
+    </select>
+    <delete id="delByCartId">
+        delete from cart where cart_id = #{cartId} and cart_u_userid = #{userId}
+    </delete>
+    <select id="findByPId" resultMap="baseresultMap">
+        select * from cart where cart_p_id = #{id} and cart_u_userid = #{userId} and cart_valid = 0
+    </select>
+
+    <select id="findByUserId" resultMap="baseresultMap">
+        select * from cart where cart_u_userid = #{userId} and cart_valid = 0
+    </select>
+    <select id="findByCartId" resultMap="baseresultMap">
+        select * from cart where cart_u_userid = #{userId} and cart_id = #{cartId}
+    </select>
+    <select id="findAll" resultMap="baseresultMap">
+        select * from cart
+    </select>
+    <select id="buying" resultMap="baseresultMap">
+        select * from cart where cart_valid = 0
+    </select>
+    <select id="buyed" resultMap="baseresultMap">
+        select * from cart where cart_valid = 1
+    </select>
+
+
+</mapper>

@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+</head>
+<body>
+<!--<div class="topbar-wrap white">-->
+<!--    <div class="topbar-inner clearfix">-->
+<!--        <div class="topbar-logo-wrap clearfix">-->
+<!--            <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>-->
+<!--            <ul class="navbar-list clearfix">-->
+<!--                <li><a class="on" href="index.html">首页</a></li>-->
+<!--                <li><a href="#" target="_blank">网站首页</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <div class="top-info-wrap">-->
+<!--            <ul class="top-info-list clearfix">-->
+<!--                <li><a id="admin" href="#" >管理员</a></li>-->
+<!--                <li><a href="#">修改密码</a></li>-->
+<!--                <li><a href="#">退出</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="container clearfix">
+    <div class="sidebar-wrap">
+        <div class="sidebar-title">
+            <h1>菜单</h1>
+        </div>
+        <div class="sidebar-content">
+            <ul class="sidebar-list">
+                <li>
+                    <a href="#"><i class="icon-font">&#xe003;</i>常用操作</a>
+                    <ul class="sub-menu">
+                        <li><a href="admin_user.html"><i class="icon-font">&#xe008;</i>用户管理</a></li>
+                        <li><a href="admin_cate.html"><i class="icon-font">&#xe005;</i>分类管理</a></li>
+                        <li><a href="admin_product.html"><i class="icon-font">&#xe006;</i>商品管理</a></li>
+                        <li><a href="admin_orders.html"><i class="icon-font">&#xe004;</i>订单管理</a></li>
+                        <li><a href="admin_news.html"><i class="icon-font">&#xe012;</i>新闻管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="icon-font">&#xe018;</i>系统管理</a>
+                    <ul class="sub-menu">
+                        <li><a href="system.html"><i class="icon-font"></i>修改密码</a></li>
+                        <!--            <li><a href="system.html"><i class="icon-font"></i>系统设置</a></li>-->
+                        <!--            <li><a href="system.html"><i class="icon-font"></i>清理缓存</a></li>-->
+                        <!--            <li><a href="system.html"><i class="icon-font"></i>数据备份</a></li>-->
+                        <!--            <li><a href="system.html"><i class="icon-font"></i>数据还原</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--/sidebar-->
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">系统设置</span></div>
+        </div>
+        <div class="result-wrap">
+            <form action="#" method="post" id="myform" name="myform">
+                <div class="config-items">
+                    <div class="config-title">
+                        <h1><i class="icon-font">&#xe00a;</i>网站信息设置</h1>
+                    </div>
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                            <tbody><tr>
+                                <th width="15%"><i class="require-red">*</i>用户账号：</th>
+                                <td><input type="text" id="userId" value="" size="85" name="keywords" class="common-text"></td>
+                            </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>名称：</th>
+                                    <td><input type="text" id="userName" value="" size="85" name="title" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>新密码：</th>
+                                    <td><input type="text" id="userPassword" value="" size="85" name="keywords" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>性别：</th>
+                                    <td><input type="text" id="userSex" value="" size="85" name="description" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>生日：</th>
+                                    <td><input type="text" id="userBirthday" value="" size="85" name="description" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>邮箱：</th>
+                                    <td><input type="text" id="userEmail" value="" size="85" name="description" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>地址：</th>
+                                    <td><input type="text" id="userAddress" value="" size="85" name="description" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th><i class="require-red">*</i>手机号：</th>
+                                    <td><input type="text" id="userMobile" value="" size="85" name="description" class="common-text"></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td>
+                                        <input type="submit" value="提交" onclick="javascript:userUpdate();" class="btn btn-primary btn6 mr10">
+                                        <input type="button" value="返回" onClick="history.go(-1)" class="btn btn6">
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </div>
+<!--                <div class="config-items">-->
+<!--                    <div class="config-title">-->
+<!--                        <h1><i class="icon-font">&#xe014;</i>站长信息设置</h1>-->
+<!--                    </div>-->
+<!--                    <div class="result-content">-->
+<!--                        <table width="100%" class="insert-tab">-->
+<!--                            <tr>-->
+<!--                                <th width="15%"><i class="require-red">*</i>网站联系邮箱：</th>-->
+<!--                                <td><input type="text" id="" value="monkey@lmonkey.com" size="85" name="email" class="common-text"></td>-->
+<!--                            </tr>-->
+<!--                                <tr>-->
+<!--                                    <th><i class="require-red">*</i>联系人：</th>-->
+<!--                                    <td><input type="text" id="" value="学习猿地" size="85" name="contact" class="common-text"></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th><i class="require-red">*</i>联系电话：</th>-->
+<!--                                    <td><input type="text" id="" value="123456" size="85" name="phone" class="common-text"></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th><i class="require-red">*</i>备案ICP：</th>-->
+<!--                                    <td><input type="text" id="" value="哥在北京" size="85" name="icp" class="common-text"></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th><i class="require-red">*</i>地址：</th>-->
+<!--                                    <td><input type="text" id="" value="中国 • 北京" size="85" name="address" class="common-text"></td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <th></th>-->
+<!--                                    <td>-->
+<!--                                        <input type="hidden" value="siteConf.inc.php" name="file">-->
+<!--                                        <input type="submit" value="提交" class="btn btn-primary btn6 mr10">-->
+<!--                                        <input type="button" value="返回" onClick="history.go(-1)" class="btn btn6">-->
+<!--                                    </td>-->
+<!--                                </tr>-->
+<!--                        </table>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </form>
+        </div>
+    </div>
+    <!--/main-->
+</div>
+<script type="text/javascript">
+    $(document).ready(function (){
+        let userId = $.cookie("userId");
+        // // var aObj = document.getElementById("admin");
+        // if (userId ==null ){
+        //     location.href = "../login.html";
+        //     // aObj.innerText = "去登录";
+        //     // aObj.href="../login.html";
+        // }else {
+        //     aObj.innerText = userId;
+        // }
+        var parmt = "?userId="+userId;
+        $.ajax({
+            url:"/user/finduserId"+parmt,
+            type:"GET",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200){
+                    $("#userId").val(json.data.userId);
+                    $("#userName").val(json.data.userName);
+                    $("#userPassword").val(json.data.userPassword);
+                    $("#userSex").val(json.data.userSex);
+                    $("#userBirthday").val(json.data.userBirthday);
+                    $("#userEmail").val(json.data.userEmail);
+                    $("#userAddress").val(json.data.userAddress);
+                    $("#userMobile").val(json.data.userMobile);
+
+                }else {
+                    alert("加载失败");
+                    location.href="index.html";
+                }
+            },
+            error:function (xhr){
+                alert("修改时产生未知的错误："+xhr.status);
+            }
+        });
+
+
+    })
+
+    function userUpdate(){
+        var userId =$("#userId").val();
+        var userName =$("#userName").val();
+        var userPassword =$("#userPassword").val();
+        var userSex =$("#userSex").val();
+        var userBirthday =$("#userBirthday").val();
+        var userEmail =$("#userEmail").val();
+        var userAddress =$("#userAddress").val();
+        var userMobile =$("#userMobile").val();
+        let parmt = "?userId="+userId+"&userPassword="+userPassword+"&userSex="+userSex+"&userBirthday="+userBirthday+"&userEmail="+userEmail+"&userMobile="+userMobile+"&userAddress="+userAddress+"&userName="+userName;
+
+        $.ajax({
+            url:"/user/userUpdate"+parmt,
+            type:"POST",
+            dataType:"json",
+            success:function (json){
+                if (json.state == 200){
+                    alert("用户修改成功!");
+                    location.href = "index.html";
+                }else {
+                    alert("用户注册失败!请登录");
+                    location.href = "../login.html";
+                }
+            },
+            error:function (xhr){
+                alert("注册时产生未知的错误："+xhr.status);
+            }
+        });
+    }
+</script>
+</body>
+</html>
